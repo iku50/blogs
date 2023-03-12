@@ -5,10 +5,10 @@
         <description>hugo - 标签 - Wizzz O.o</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 25 Apr 2022 14:41:07 &#43;0800</lastBuildDate><atom:link href="http://iku50.github.io/blogs/tags/hugo/" rel="self" type="application/rss+xml" /><item>
     <title>建站！</title>
-    <link>http://iku50.github.io/blogs/post/web/buildwebsite/</link>
+    <link>http://iku50.github.io/blogs/post/buildwebsite/</link>
     <pubDate>Mon, 25 Apr 2022 14:41:07 &#43;0800</pubDate>
     <author>[Wizzz]</author>
-    <guid>http://iku50.github.io/blogs/post/web/buildwebsite/</guid>
+    <guid>http://iku50.github.io/blogs/post/buildwebsite/</guid>
     <description><![CDATA[用hugo+github pages托管+阿里云ecs建站 现在发现hugo和github pages就行了，阿里云要花钱不如不用。 之前是用wor]]></description>
 </item>
 </channel>
