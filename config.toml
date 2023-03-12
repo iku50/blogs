@@ -6,7 +6,7 @@ theme = "loveit"
 # themes directory
 # 主题目录
 #themesDir = "../.."
-poblishDir = "docs"
+publishDir = "docs"
 
 # website title
 # 网站标题
