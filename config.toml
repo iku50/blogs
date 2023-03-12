@@ -67,7 +67,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     # 你可以在名称 (允许 HTML 格式) 之后添加其他信息, 例如图标
     post = ""
     name = "Posts"
-    url = "/posts/"
+    url = "/post/"
     # title will be shown when you hover on this menu link
     # 当您将鼠标悬停在此菜单链接上时, 将显示标题
     title = ""
@@ -801,7 +801,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
         pre = ""
         post = ""
         name = "所有文章"
-        url = "/posts/"
+        url = "/post/"
         title = ""
       [[languages.zh-cn.menu.main]]
         weight = 2
