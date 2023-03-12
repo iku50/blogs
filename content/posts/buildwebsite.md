@@ -5,6 +5,7 @@ draft: false
 description: "本文用来展示用hugo等工具建站的流程"
 author: "[Wizzz]"
 tags: ["hugo","website"]
+categories:"web"
 ---
 ## 用hugo+github pages托管+阿里云ecs建站
 
@@ -27,7 +28,7 @@ tags: ["hugo","website"]
 由于我是manjaro系统，且之前早就已经安装好了go环境，所以我只需要用snap直接安装hugo即可。
 
 ```bash
-sudo snap install hugo        
+sudo snap install hugo      
 ```
 
 然后检查一下版本看是否安装成功。

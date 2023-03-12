@@ -1,4 +1,4 @@
-+++
+---
 title = "Github新手使用教程"
 date = "2022-04-29T22:39:59+08:00"
 author = "[Wizzz]"
@@ -7,11 +7,12 @@ cover = ""
 tags = ["github"]
 keywords = ["", ""]
 description = "给纯新手阅读的github使用教程"
+categories = "git"
 showFullContent = false
 readingTime = false
 hideComments = false
-
-+++
+---
+---
 
 应要求写的一份
 
@@ -33,15 +34,11 @@ https://git-scm.com/
 
 点右侧的Download for [你的操作系统]，下载完成后安装步骤如：
 
-1. 
-   点右侧的Download for Windows，下载完成后安装步骤如：
-   
+1. 点右侧的Download for Windows，下载完成后安装步骤如：
+
    windows： https://www.jianshu.com/p/414ccd423efc
-
-2.
-   Mac用户请转如下博客进行安装与基本使用教程 https://www.csdn.net/tags/MtjaIgxsMzUzNjUtYmxvZwO0O0OO0O0O.html
-
-3.  [ Linux: ] 用linux的人不会连git都不知道怎么安吧
+2. Mac用户请转如下博客进行安装与基本使用教程 https://www.csdn.net/tags/MtjaIgxsMzUzNjUtYmxvZwO0O0OO0O0O.html
+3. [ Linux: ] 用linux的人不会连git都不知道怎么安吧
 
 ### 在github上对项目进行贡献
 
