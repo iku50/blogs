@@ -123,7 +123,7 @@
         data-srcset="media/cmu15454/2023-03-12_19-24.png, media/cmu15454/2023-03-12_19-24.png 1.5x, media/cmu15454/2023-03-12_19-24.png 2x"
         data-sizes="auto"
         alt="media/cmu15454/2023-03-12_19-24.png"
-        title="1678620288199" /></p>
+        title="测试结果" /></p>
 <h4 id="task-2-concurrent-key-value-store">Task #2 Concurrent Key-Value Store</h4>
 <p>完成 Copy-on-write  trie 后，要完成并发键值存储。以适应多线程下的操作。一样是那三个方法。实现需要的就是理解多线程下互斥锁的功能。在 C++ 里，互斥锁是 <code>std::Mutex</code> ，在头文件里已经帮我们实现了读写锁，要求我们实现写读可同时进行，那么其实要做的就非常容易了。</p>
 <p>对于 Get，直接使用上面我们实现的方法，只需在前面加上在加锁解锁间复制根节点指针，并让之后的 Get 操作都对这个复制的指针进行就可以了。</p>
