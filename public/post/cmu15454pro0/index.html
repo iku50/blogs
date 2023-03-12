@@ -9,7 +9,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://iku50.github.io/blogs/post/cmu15454pro0/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2023-03-12T16:23:27+08:00" />
-<meta property="article:modified_time" content="2023-03-12T20:56:46+08:00" /><meta property="og:site_name" content="wizzz O.o&#39;s blog" />
+<meta property="article:modified_time" content="2023-03-12T20:57:54+08:00" /><meta property="og:site_name" content="wizzz O.o&#39;s blog" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="CMU15445-pro0记录"/>
 <meta name="twitter:description" content="CMU 15-445"/>
@@ -28,7 +28,7 @@
             "@type": "WebPage",
             "@id": "http:\/\/iku50.github.io\/blogs\/post\/cmu15454pro0\/"
         },"image": ["http:\/\/iku50.github.io\/images\/Apple-Devices-Preview.png"],"genre": "post","keywords": "database, c\u002b\u002b","wordcount":  1614 ,
-        "url": "http:\/\/iku50.github.io\/blogs\/post\/cmu15454pro0\/","datePublished": "2023-03-12T16:23:27+08:00","dateModified": "2023-03-12T20:56:46+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+        "url": "http:\/\/iku50.github.io\/blogs\/post\/cmu15454pro0\/","datePublished": "2023-03-12T16:23:27+08:00","dateModified": "2023-03-12T20:57:54+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "http:\/\/iku50.github.io\/images\/avatar.png"},"author": {
                 "@type": "Person",
@@ -41,7 +41,7 @@
         <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
     <div class="header-wrapper">
         <div class="header-title">
-            <a href="/blogs/" title="Wizzz O.o"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw' aria-hidden='true'></i></span>LoveIt</a>
+            <a href="/blogs/" title="Wizzz O.o"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw' aria-hidden='true'></i></span>Wizzz O.o</a>
         </div>
         <div class="menu">
             <div class="menu-inner"><a class="menu-item" href="/blogs/post/"> 所有文章 </a><a class="menu-item" href="/blogs/tags/"> 标签 </a><a class="menu-item" href="/blogs/categories/"> 分类 </a><a class="menu-item" href="/blogs/about/"> 关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
@@ -64,7 +64,7 @@
     <div class="header-container">
         <div class="header-wrapper">
             <div class="header-title">
-                <a href="/blogs/" title="Wizzz O.o"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw' aria-hidden='true'></i></span>LoveIt</a>
+                <a href="/blogs/" title="Wizzz O.o"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw' aria-hidden='true'></i></span>Wizzz O.o</a>
             </div>
             <div class="menu-toggle" id="menu-toggle-mobile">
                 <span></span><span></span><span></span>
@@ -119,11 +119,11 @@
 <p><img
         class="lazyload"
         src="/blogs/svg/loading.min.svg"
-        data-src="media/cmu15454/2023-03-12_19-24.png"
-        data-srcset="media/cmu15454/2023-03-12_19-24.png, media/cmu15454/2023-03-12_19-24.png 1.5x, media/cmu15454/2023-03-12_19-24.png 2x"
+        data-src="../../media/cmu15454/2023-03-12_19-24.png"
+        data-srcset="../../media/cmu15454/2023-03-12_19-24.png, ../../media/cmu15454/2023-03-12_19-24.png 1.5x, ../../media/cmu15454/2023-03-12_19-24.png 2x"
         data-sizes="auto"
-        alt="media/cmu15454/2023-03-12_19-24.png"
-        title="112123435345" /></p>
+        alt="../../media/cmu15454/2023-03-12_19-24.png"
+        title="14565463546435" /></p>
 <h4 id="task-2-concurrent-key-value-store">Task #2 Concurrent Key-Value Store</h4>
 <p>完成 Copy-on-write  trie 后，要完成并发键值存储。以适应多线程下的操作。一样是那三个方法。实现需要的就是理解多线程下互斥锁的功能。在 C++ 里，互斥锁是 <code>std::Mutex</code> ，在头文件里已经帮我们实现了读写锁，要求我们实现写读可同时进行，那么其实要做的就非常容易了。</p>
 <p>对于 Get，直接使用上面我们实现的方法，只需在前面加上在加锁解锁间复制根节点指针，并让之后的 Get 操作都对这个复制的指针进行就可以了。</p>
@@ -133,10 +133,10 @@
 <p><img
         class="lazyload"
         src="/blogs/svg/loading.min.svg"
-        data-src="media/cmu15454/2023-03-12_19-42.png"
-        data-srcset="media/cmu15454/2023-03-12_19-42.png, media/cmu15454/2023-03-12_19-42.png 1.5x, media/cmu15454/2023-03-12_19-42.png 2x"
+        data-src="../../media/cmu15454/2023-03-12_19-42.png"
+        data-srcset="../../media/cmu15454/2023-03-12_19-42.png, ../../media/cmu15454/2023-03-12_19-42.png 1.5x, ../../media/cmu15454/2023-03-12_19-42.png 2x"
         data-sizes="auto"
-        alt="media/cmu15454/2023-03-12_19-42.png"
+        alt="../../media/cmu15454/2023-03-12_19-42.png"
         title="1678621339132" /></p>
 <h4 id="task-3---debugging">Task #3 - Debugging</h4>
 <p>这里没什么好说的，设置断点在 vscode 中直接看就行。</p>
@@ -146,38 +146,38 @@
 <p><img
         class="lazyload"
         src="/blogs/svg/loading.min.svg"
-        data-src="media/cmu15454/2023-03-12_20-12.png"
-        data-srcset="media/cmu15454/2023-03-12_20-12.png, media/cmu15454/2023-03-12_20-12.png 1.5x, media/cmu15454/2023-03-12_20-12.png 2x"
+        data-src="../../media/cmu15454/2023-03-12_20-12.png"
+        data-srcset="../../media/cmu15454/2023-03-12_20-12.png, ../../media/cmu15454/2023-03-12_20-12.png 1.5x, ../../media/cmu15454/2023-03-12_20-12.png 2x"
         data-sizes="auto"
-        alt="media/cmu15454/2023-03-12_20-12.png"
+        alt="../../media/cmu15454/2023-03-12_20-12.png"
         title="1678623187735" /></p>
 <p>接着运行它给我们的三个数据库上的测试</p>
 <p>基础测试：</p>
 <p><img
         class="lazyload"
         src="/blogs/svg/loading.min.svg"
-        data-src="media/cmu15454/2023-03-12_20-16.png"
-        data-srcset="media/cmu15454/2023-03-12_20-16.png, media/cmu15454/2023-03-12_20-16.png 1.5x, media/cmu15454/2023-03-12_20-16.png 2x"
+        data-src="../../media/cmu15454/2023-03-12_20-16.png"
+        data-srcset="../../media/cmu15454/2023-03-12_20-16.png, ../../media/cmu15454/2023-03-12_20-16.png 1.5x, ../../media/cmu15454/2023-03-12_20-16.png 2x"
         data-sizes="auto"
-        alt="media/cmu15454/2023-03-12_20-16.png"
+        alt="../../media/cmu15454/2023-03-12_20-16.png"
         title="1678623553473" /></p>
 <p>异常测试：</p>
 <p><img
         class="lazyload"
         src="/blogs/svg/loading.min.svg"
-        data-src="media/cmu15454/2023-03-12_20-18.png"
-        data-srcset="media/cmu15454/2023-03-12_20-18.png, media/cmu15454/2023-03-12_20-18.png 1.5x, media/cmu15454/2023-03-12_20-18.png 2x"
+        data-src="../../media/cmu15454/2023-03-12_20-18.png"
+        data-srcset="../../media/cmu15454/2023-03-12_20-18.png, ../../media/cmu15454/2023-03-12_20-18.png 1.5x, ../../media/cmu15454/2023-03-12_20-18.png 2x"
         data-sizes="auto"
-        alt="media/cmu15454/2023-03-12_20-18.png"
+        alt="../../media/cmu15454/2023-03-12_20-18.png"
         title="1678623664143" /></p>
 <p>字符串扫描测试：</p>
 <p><img
         class="lazyload"
         src="/blogs/svg/loading.min.svg"
-        data-src="media/cmu15454/2023-03-12_20-18_1.png"
-        data-srcset="media/cmu15454/2023-03-12_20-18_1.png, media/cmu15454/2023-03-12_20-18_1.png 1.5x, media/cmu15454/2023-03-12_20-18_1.png 2x"
+        data-src="../../media/cmu15454/2023-03-12_20-18_1.png"
+        data-srcset="../../media/cmu15454/2023-03-12_20-18_1.png, ../../media/cmu15454/2023-03-12_20-18_1.png 1.5x, ../../media/cmu15454/2023-03-12_20-18_1.png 2x"
         data-sizes="auto"
-        alt="media/cmu15454/2023-03-12_20-18_1.png"
+        alt="../../media/cmu15454/2023-03-12_20-18_1.png"
         title="1678623876602" /></p>
 <p>全部通过。</p>
 <h3 id="总结">总结</h3>
@@ -187,7 +187,7 @@
             </noscript></div></div></div>
             </main><footer class="footer">
         <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.110.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
-                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2019 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/blogs/" target="_blank">xxxx</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/blogs/" target="_blank">xxxx</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
 

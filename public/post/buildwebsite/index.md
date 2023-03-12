@@ -73,8 +73,6 @@ Visit https://gohugo.io/ for quickstart guide and full documentation.
 
 可以看到 `Choose a theme from https://themes.gohugo.io/`这一项，直接点链接或者复制到浏览器打开挑选喜欢的主题。
 
-![buildwebsi](media/buildwebsite/hugothemecut.png)
-
 挑选好后查看其github页面获取url，再在网站目录里用git下载。
 
 ```bash
@@ -114,7 +112,7 @@ baseURL = "https://<github仓库的url>"
 
 在github上设置page参数
 
-![1678618982956](media/buildwebsite/githubsettingcut.png)
+![1678618982956](../../media/buildwebsite/githubsettingcut.png)
 
 把source选项中的 `/(root)`改成 `/docs`。方便后面生成。
 
@@ -136,7 +134,7 @@ hugo -d docs
 
 改变github pages设置中的custom domian为设置的新域名。
 
-![1678619026156](media/buildwebsite/blogsetingdomaincut.png)
+![1678619026156](../../media/buildwebsite/blogsetingdomaincut.png)
 
 然后就可以用自己的域名访问了。
 
