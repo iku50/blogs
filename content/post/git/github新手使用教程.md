@@ -1,17 +1,11 @@
 ---
-title = "Github新手使用教程"
-date = "2022-04-29T22:39:59+08:00"
-author = "[Wizzz]"
-authorTwitter = "" #do not include @
-cover = ""
-tags = ["github"]
-keywords = ["", ""]
-description = "给纯新手阅读的github使用教程"
-categories = "git"
-showFullContent = false
-readingTime = false
-hideComments = false
----
+title: "Github新手使用教程"
+date: "2022-04-29T22:39:59+08:00"
+author: "[Wizzz]"
+authorTwitter: "" #do not include @
+tags: ["github"]
+description: "给纯新手阅读的github使用教程"
+categories: "git"
 ---
 
 应要求写的一份

@@ -5,7 +5,7 @@ draft: false
 description: "本文用来展示用hugo等工具建站的流程"
 author: "[Wizzz]"
 tags: ["hugo","website"]
-categories:"web"
+categories: "web"
 ---
 ## 用hugo+github pages托管+阿里云ecs建站
 
