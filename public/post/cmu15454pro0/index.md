@@ -36,7 +36,7 @@ Remove 方法大体上延续 Put 方法的思路，主要是要当节点无值�
 
 最后的测试结果如下：
 
-![测试结果](media/cmu15454/2023-03-12_19-24.png)
+![112123435345](media/cmu15454/2023-03-12_19-24.png)
 
 #### Task #2 Concurrent Key-Value Store
 
