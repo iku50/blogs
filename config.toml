@@ -827,14 +827,6 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
         name = "关于"
         url = "/about/"
         title = ""
-      [[languages.zh-cn.menu.main]]
-        weight = 6
-        identifier = "github"
-        pre = "<i class='fab fa-github fa-fw' aria-hidden='true'></i>"
-        post = ""
-        name = ""
-        url = "https://github.com/dillonzq/LoveIt"
-        title = "GitHub"
     [languages.zh-cn.params]
       description = "Wizzz's O.o's blog"
       keywords = ["Linux","backends","golang"]

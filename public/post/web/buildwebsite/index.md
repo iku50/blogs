@@ -21,7 +21,7 @@
 由于我是manjaro系统，且之前早就已经安装好了go环境，所以我只需要用snap直接安装hugo即可。
 
 ```bash
-sudo snap install hugo      
+sudo snap install hugo  
 ```
 
 然后检查一下版本看是否安装成功。
@@ -73,7 +73,7 @@ Visit https://gohugo.io/ for quickstart guide and full documentation.
 
 可以看到 `Choose a theme from https://themes.gohugo.io/`这一项，直接点链接或者复制到浏览器打开挑选喜欢的主题。
 
-![hugothemecut](/media/buildwebsite/hugothemecut.png)
+![1678619042538](image/buildwebsite/1678619042538.png)
 
 挑选好后查看其github页面获取url，再在网站目录里用git下载。
 
@@ -114,7 +114,7 @@ baseURL = "https://<github仓库的url>"
 
 在github上设置page参数
 
-![githubsettingcut](/media/buildwebsite/githubsettingcut.png)
+![1678618982956](image/buildwebsite/1678618982956.png)
 
 把source选项中的 `/(root)`改成 `/docs`。方便后面生成。
 
@@ -136,7 +136,7 @@ hugo -d docs
 
 改变github pages设置中的custom domian为设置的新域名。
 
-![blogsetingdomaincut](/media/buildwebsite/blogsetingdomaincut.png)
+![1678619026156](image/buildwebsite/1678619026156.png)
 
 然后就可以用自己的域名访问了。
 
