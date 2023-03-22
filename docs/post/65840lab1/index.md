@@ -1,0 +1,120 @@
+# MIT6-5840Lab1记录
+
+## MIT6-5840Lab1
+
+这次的 Lab 来源于 MIT 6-5840，过去的一周中都在被这个 Lab 折磨。好歹还是完成了。在这里记录一下。
+
+### 0.事先准备
+
+首先当然是简单地克隆一下今年课程代码。
+
+```shell
+git clone git://g.csail.mit.edu/6.5840-golabs-2023 6.5840
+```
+
+接着按照 guide 中的指示稍微过一遍程序流程。
+
+稍微看一遍 guide，着重看一下 your job 的部分，rules 和 hints 等到开始写代码时再看。
+
+它的要求是用三个文件 `mr/coordinator.go`, `mr/worker.go` 和 `mr/rpc.go`实现一个简单的MapRduce系统
+
+`coordinator.go` 文件负责在MapReduce论文中的Master部分，只不过改了个Coordinator的名字，主要工作就是派发任务给workers，要有判断目前算法阶段以派发不同任务的功能，在后面的实现中，发现还需要能够判断某worker是否出问题来把任务派发给其他worker。
+
+`rpc.go` 文件负责在Workers和Coordinator之间进行通讯，通讯的流程我们不关注，只需要知道使用的方法。
+
+`Worker.go` 文件负责具体的工作部分，需要能够处理Map任务和Reduce任务。
+
+阅读了MapReduce算法的论文后，开始编写代码。
+
+代码编辑用的是Goland，很好用。
+
+### 1.MapReduce 逻辑
+
+首先编写Worker逻辑，由底层实现开始
+
+`Worker.go` 逻辑的实现首先可以放眼 Map 函数和 Reduce 函数的实现，基本上是从它自带的 `mrsequential.go`中抄代码的过程，稍微修改后发现其所需要的一些必须数据，因此将这些数据统一为 Task 类在 `rpc.go`文件中。
+
+```go
+type Task struct {
+  ID        int
+  Worker    int
+  Type      string //Map,Reduce,Done,Waiting
+  ReduceNum int
+  MapNum    int
+  MapFile   string
+  Deadline  time.Time
+}
+```
+
+这里的 Type 用来描述 Task 的状态。
+
+注意这里的内部变量必须全部首字母大写，不然其他文件调用不了（golang 用首字母大小写确定公私有关系）
+
+### 2. 程序流程
+
+这时必须审视一下程序流程了，首先对于一个worker来说，最好的状态是收到task后工作完成紧接着继续收到一个task。毕竟程序不用休息。那么最好的方法其实是在每一个task完成后向coordinator报告并获取下一个task。
+
+这样想的话，考虑到在Map和Reduce中间肯定会有Worker因为所有Map任务都派发完陷入等待其他Worker完成剩余的Map任务后一起进入Reduce任务的状态下，由hints中的提示，将Task分为四种Type：
+
+1. Map,Reduce
+   在这种状态下，Worker应该马上开始工作。
+2. Waiting
+   在这种状态下，Worker应该等待一段时间后再发送请求任务
+3. Done
+   在这种状态下，Worker应该结束自身。
+
+于是我们理清了Worker的流程。
+
+而考虑到RPC，在上述的状态描述下，它只需要处理Worker发出的申请任务请求和Coordinator的Task回应就可以了。
+
+这里等于说，我们将Worker的申请任务请求和完成任务报告（应该含有worker的ID和Task）合二为一。
+
+对于Coordinator，它首先需要一个锁来处理不同线程试图对它进行访问时的可能发生的竞争，然后需要一个变量保存目前总任务的状态信息，另外需要Map任务的总数量和Reduce任务的总数量，以给任务分配ID，再加一个空闲任务的列表（最好是一个先进先出的列表，而golang中的channel就是一个很好的实现工具）
+
+在后面的测试流程中，发现在worker的waiting状态下，coordinator需要对目前完成的任务进行判断以来确定是否所有任务都已经被完成，才能进入下一个阶段或者是结束流程。所以需要变量保存已完成的任务数和任务总数。
+
+在这里我们看到申请任务请求要返回的上一个任务的Task，如果要直接返回将是很大的一笔消耗。所以在这里我们想到可以在Coordinator里面保存Task的具体信息，而只需要Worker发来的TaskID数据就能够验证处理了。
+
+但这样的话又遇到另一个问题，等一下对这个问题进行具体描述，我们先继续完成这一部分的逻辑。
+
+这样的话，具体编写后发现coodirnator需要四个方法
+
+1. MakeCoordirnator()
+   用来初始化Coordirnator的构造函数
+2. ApplyForTask()
+   RPC调用所需要的函数，用来生成派发任务
+3. MapFile()和ReduceFile()
+   用来生成中间文件和最终文件
+
+MakeCoordirnator方法暂时只是构造函数不谈。我们先看看ApplyForTask方法。
+
+ApplyForTask需要首先处理Worker传回来的上一个Task，将其处理成中间文件或者最终文件，并判断是否可以进入下一个阶段，即所有该阶段任务是否已经被完成，这里我们可以使用保存的Task的清单，既然清单上的任务完成了那么划掉就可以了吧，因此我们在任务列表中删除该完成的任务并且当任务列表清零时就可以判断出所有该阶段任务已经被完成。当然，如果Worker是刚开始申请任务还没有完成任何一个任务就跳过这部分。
+
+接着，ApplyForTask从空闲的任务中派发任务出去，如果为刚刚进入Reduce阶段的话应该在刚刚就生成了一批新的Task任务可供派发。如果是Waiting或者Done的话应该在之前的逻辑中就返回了。所以这里绝对有空闲任务可供派发。
+
+欧克，我们照着这个流程走一次，就会发现其他test通过，但crash_test失败了。
+
+### 3. 崩溃处理
+
+这里的崩溃在我们阅读了日志信息后发现，是因为worker提前退出了，而coordinator还在等待worker的任务完成后才能清零任务进入下一阶段。
+
+好吧，既然worker退出了，那首先就需要有东西检测到它退出才可以。
+
+我们可以在worker和coordinator之间建立一个heratbeat，每隔一段时间worker就要跟coordinator发信息表明自己存活。没发就当worker死了。但这里我们使用另一种方法，就是为每一个Task设置一个limittime，在coordinator那设置一个专门的goroutine来检测所有未完成task有没有超时，超时就将task加入空闲task的channel里给其他线程用。
+
+但这里有一个问题，就是当worker虽然超时了但没有退出，实际上可能只是它处理的慢了一点，或者中间暂停了一会儿，那么重新发放任务时的对两个线程处理一个任务的竞争怎么解决？
+
+那么就用新建的但沿袭之前任务各项数据的任务派发给后来者吧。
+
+那么当先前的worker也发放了自己的结果给coordinator，那么对于两段同样的任务该如何处理？
+
+所以我们需要worker和Task之间的对应，在每一个task都应该有处理它的worker的ID，当任务被二次派发时WorkerID也随之覆盖。这时超时worker的返回Task就是不合法的，直接照表一查就知道，这时只需要丢弃这个信息就可以了。
+
+这就是崩溃中的检测和二次派发。在处理完这部分的代码后终于看到所有测试都通过了（事实上这是最耗时间精力的部分）
+
+![1678618982956](../../media/65840lab/2023-03-22_17-03.png)
+
+### 感想
+
+啊，好难啊，后面据说更难。遗憾就是没有优雅地处理好worker的退出。有思路和想法但暂时不想动这个Lab了，先就这样吧。
+
