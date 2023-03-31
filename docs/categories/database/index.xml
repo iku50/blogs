@@ -3,7 +3,15 @@
         <title>database - 分类 - Wizzz O.o</title>
         <link>http://iku50.github.io/blogs/categories/database/</link>
         <description>database - 分类 - Wizzz O.o</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 12 Mar 2023 16:23:27 &#43;0800</lastBuildDate><atom:link href="http://iku50.github.io/blogs/categories/database/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 30 Mar 2023 19:02:48 &#43;0800</lastBuildDate><atom:link href="http://iku50.github.io/blogs/categories/database/" rel="self" type="application/rss+xml" /><item>
+    <title>CMU15445-pro1记录</title>
+    <link>http://iku50.github.io/blogs/post/cmu15445pro1/</link>
+    <pubDate>Thu, 30 Mar 2023 19:02:48 &#43;0800</pubDate>
+    <author>[Wizzz]</author>
+    <guid>http://iku50.github.io/blogs/post/cmu15445pro1/</guid>
+    <description><![CDATA[CMU15445-pro1记录 离上一次这个 Lab 的更新已经有三周了，主要是中间系统滚挂一次切成之前的镜像也没用，无奈之下重装系统，借此机会也正式]]></description>
+</item>
+<item>
     <title>CMU15445-pro0记录</title>
     <link>http://iku50.github.io/blogs/post/cmu15445pro0/</link>
     <pubDate>Sun, 12 Mar 2023 16:23:27 &#43;0800</pubDate>
