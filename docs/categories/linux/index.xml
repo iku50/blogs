@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>linux - 分类 - Wizzz O.o</title>
+        <link>http://iku50.github.io/blogs/categories/linux/</link>
+        <description>linux - 分类 - Wizzz O.o</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 11 Apr 2023 19:57:41 &#43;0800</lastBuildDate><atom:link href="http://iku50.github.io/blogs/categories/linux/" rel="self" type="application/rss+xml" /><item>
+    <title>Archcraftnote</title>
+    <link>http://iku50.github.io/blogs/post/archcraftnote/</link>
+    <pubDate>Tue, 11 Apr 2023 19:57:41 &#43;0800</pubDate>
+    <author>[Wizzz]</author>
+    <guid>http://iku50.github.io/blogs/post/archcraftnote/</guid>
+    <description><![CDATA[Archcraft-note 关于本人 Archcraft 的装机记录，以及一些常用软件的安装记录。用以以后滚挂重装时的参考。 0. 为什么选择 Archcraft Arch 安装过程繁琐，如果以后想快速构建开发环境，还是]]></description>
+</item>
+</channel>
+</rss>
