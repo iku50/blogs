@@ -61,9 +61,6 @@ XMODIFIERS=@im=fcitx
 echo "fcitx5 &" >> ~/.config/bspwm/bspwmrc
 ```
 
-```bash
-```
-
 #### 4.2. 终端设置
 
 很棒的事情是：Archcraft 默认终端是 Alacritty，而且已经配置好了，只需要调整一下透明度即可。
